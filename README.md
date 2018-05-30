@@ -4,7 +4,8 @@ Shell script to install a [LightPayCoin Masternode](https://www.lightpaycoin.org
 ***
 ## Installation:
 ```
-wget -q https://github.com/lpcproject/lpcinstall/blob/master/lpc-install.sh
+git clone https://github.com/lpcproject/lpcinstall.git
+cd lpcinstall
 bash lpc-install.sh
 ```
 ***

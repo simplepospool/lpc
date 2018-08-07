@@ -10,9 +10,9 @@ COIN_PORT=39797
 
 NODEIP=$(curl -s4 icanhazip.com)
 
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-NC='\033[0m'
+RED=''
+GREEN=''
+NC=''
 
 progressfilt () {
   local flag=false c count cr=$'\r' nl=$'\n'
@@ -280,6 +280,10 @@ function important_information() {
  fi
  echo -e "Check if $COIN_NAME is running by using the following command:\n${RED}ps -ef | grep $COIN_DAEMON | grep -v grep${NC}"
  echo -e "================================================================================"
+ 
+ clear
+ echo -e "{\"coin\":\""$COIN_NAME"\", \"port\":\""$COIN_PORT"\", \"id\":\""$NODEIP"\", \"mnip\":\""$NODEIP:$COIN_PORT"\", \"startmn\":\""$COIN_DAEMON -daemon"\", \"stopmn\":\""$COIN_CLI stop"\", \"getinfomn\":\""$COIN_CLI getinfo"\", \"statusmn\":\""$COIN_CLI masternode status"\", \"privatekey\":\""$COINKEY"\", \"startservice\":\""systemctl start $COIN_NAME.service"\", \"stopservice\":\""systemctl stop $COIN_NAME.service"\"}"
+clear
 }
 
 function setup_node() {
